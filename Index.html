@@ -21,6 +21,7 @@
             <button type="button" onclick="myFunction()">
                 Predecir
             </button>
+	    <h2 id='resultado'></h2>
         </header>
         
         <div class="icons">
@@ -43,7 +44,13 @@ function myFunction() {
           return response.json();}
         return Promise.reject(response);}).then(function (data) {
         console.log(data.resultado);
-	document.getElementById("resultado").textContent = data.resultado
+	if(data.resultado == "1"){
+		document.getElementById("resultado").textContent = "PRO ED"
+	}
+	else{
+		document.getElementById("resultado").textContent = "NO PRO ED"
+	}
+	
 	}).catch(function (error) {console.warn('Something went wrong.', error);});
    
 }
